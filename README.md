@@ -56,3 +56,8 @@ After that we entered our datas, program makes request to NBP API, where datas a
 When datas are unavailable, program makes request with previous day which is not weekend days.
 
 Downloaded datas are recalculated and returned to dictionary which is passed to the bucket client, there dict is converted to json file and pushed to the cloud.
+
+## json file name
+```bash
+{exchanged_date}, {currency_to_exchange}-{currency_to_exchange_for}.json
+```
