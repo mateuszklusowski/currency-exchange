@@ -3,13 +3,13 @@
 First, clone the project
 
 ```bash
-  git clone https://github.com/mateuszklusowski/emako.git
+  git clone https://github.com/mateuszklusowski/currency-exchange.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd emako
+  cd currency-exchange
 ```
 
 Install dependencies
