@@ -24,11 +24,15 @@ class Database:
             FROM
                 last_operations
             WHERE
-                from_currency LIKE '{from_currency}'
+                from_currency LIKE %{from_currency}s
             AND
-                to_currency LIKE '{to_currency}'
+                to_currency LIKE %{to_currency}s
             AND
-                exchange_rate_date LIKE '{date}';"""
+                exchange_rate_date LIKE %{date}s;""",{
+                'from_currency': from_currency,
+                'to_currency': to_currency,
+                'date': date
+            }
 
         return self.cursor.execute(query)
 
