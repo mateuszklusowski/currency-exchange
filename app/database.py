@@ -26,6 +26,3 @@ class Database:
             AND exchange_rate_date LIKE ?",
             (from_currency, to_currency, date),
         )
-
-    def __del__(self):
-        self.connection.close()
