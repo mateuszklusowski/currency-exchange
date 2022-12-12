@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   app:
-    container_name: emako-app
+    container_name: currency-exchanger
     build:
       context: .
     volumes:

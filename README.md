@@ -1,23 +1,28 @@
+# Overview
+Script to automate the conversion of currency values and their storage on amazon s3.
+
+Data are taken from the official api from the nbp.
+
+The data entered are processed with requests, resulting in data from the available day (except weekends).
+
+Datas are stored to the databade, converted to json file and pushed to the cloud.
+
+If exchange already exists, script does not make request but get data from database.
+
+**json file example:** *{exchanged_date}, {currency_to_exchange}-{currency_to_exchange_for}.json*
 # How run script
-
 First, clone the project
-
 ```bash
   git clone https://github.com/mateuszklusowski/currency-exchange.git
 ```
-
 Go to the project directory
-
 ```bash
   cd currency-exchange
 ```
-
 Install dependencies
-
 ```bash
   docker-compose build
 ```
-
 Run script
 ```bash
   docker-compose run --rm app sh -c "python main.py"
@@ -35,7 +40,7 @@ If you get stuck, type "python main.py --help".
 ```
 Below you can see command result:
 ```bash
-  Usage: main.py [OPTIONS]
+Usage: main.py [OPTIONS]
 
 Options:
   --ammount FLOAT RANGE           [x<=None; required]
@@ -45,19 +50,5 @@ Options:
                                   [required]
   --entry_date [%Y-%m-%d]         [required]
   --help                          Show this message and exit.
-  
-Enter the ammount: 10
 
-```
-# How it works
-
-After that we entered our datas, program makes request to NBP API, where datas are checking if they are available
-
-When datas are unavailable, program makes request with previous day which is not weekend days.
-
-Downloaded datas are recalculated and returned to dictionary which is passed to the bucket client, there dict is converted to json file and pushed to the cloud.
-
-## json file name
-```bash
-{exchanged_date}, {currency_to_exchange}-{currency_to_exchange_for}.json
 ```
